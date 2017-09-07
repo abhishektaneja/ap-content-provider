@@ -1,0 +1,25 @@
+apply plugin: 'docker'
+
+task buildDocker(type: Docker, dependsOn: build) {
+    push = false
+
+    applicationName = jar.baseName
+    dockerfile = file('Dockerfile')
+
+    doFirst {
+
+        mkdir "${project.buildDir}/target"
+        println "${project.buildDir}/target/${rootProject.name}-${project.version}.jar"
+        copy {
+            from "${project.buildDir}/libs"
+            into stageDir
+            include "${rootProject.name}-${version}.jar"
+            rename("${rootProject.name}-${version}.jar", "app.jar")
+        }
+    }
+
+    //doLast {
+    //    println "Run the Docker Container"
+    //    println "docker run -ti -p 9000:8080 $project.group/$applicationName:$version"
+    // }
+}
