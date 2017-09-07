@@ -1,0 +1,8 @@
+.gradle
+logs/
+out/
+.idea/
+build/
+dump.rdb
+src/main/resources/application-dev.properties
+ap-content-provider.iml
