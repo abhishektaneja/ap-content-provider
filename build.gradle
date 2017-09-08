@@ -1,5 +1,4 @@
 project.group = 'com.trivago'
-project.version = '0.0.1'
 
 buildscript {
     ext {
@@ -22,7 +21,6 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'ap-content-provider'
-    version = "$project.version"
 }
 
 repositories {
